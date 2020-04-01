@@ -21,7 +21,6 @@ project = 'cse130-notes'
 copyright = '2020, Andrew Zhu'
 author = 'Andrew Zhu'
 
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -38,6 +37,7 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'venv']
 
+master_doc = 'index'
 
 # -- Options for HTML output -------------------------------------------------
 
