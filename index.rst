@@ -11,6 +11,7 @@ Welcome to cse130-notes's documentation!
    :caption: Contents:
 
    intro
+   naming
 
 
 Indices and tables

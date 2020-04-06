@@ -114,3 +114,18 @@ Now we need to understand what boxes are, and how to assemble them
     - use names to look up which components to use, where to find them
 - a way for a component to talk about another component that it's using
 - **binding**: going from a name to the actual code that's being run
+
+Approaches
+----------
+
+Iteration
+^^^^^^^^^
+
+- you likely won't make the right choices the first time, so make it easy to fix
+- make small steps, have fallbacks and try a lot of choices
+
+KISS
+^^^^
+Keep it Simple, Stupid
+
+- resist temptation to add unnecessary features, which increases complexity and you can't take them away
