@@ -12,6 +12,12 @@ Welcome to cse130-notes's documentation!
 
    intro
    naming
+   clientserver
+   virtualization
+   sync
+   deadlock
+   naming2
+   performance
 
 
 Indices and tables

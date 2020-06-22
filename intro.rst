@@ -129,3 +129,83 @@ KISS
 Keep it Simple, Stupid
 
 - resist temptation to add unnecessary features, which increases complexity and you can't take them away
+
+Fundamental Abstractions
+------------------------
+
+Memory
+^^^^^^
+Memory is a fundamental abstraction - it just means storage
+
+- basic operations:
+    - WRITE (name, value)
+    - value <- READ (name)
+- memory can be provided by both hardware and complex systems
+    - RAM
+    - Disk
+    - files
+    - database
+- use layering and modularity to select specific memory module
+- main characteristics:
+    - latency: time to r/w 1st byte
+    - bandwidth: how long it takes to r/w X bytes
+    - cost
+    - capacity
+    - volatility/lifetime
+    - rewritability
+
+But you might have:
+
+- different terms for the units that make up values (e.g. bytes v. sequences)
+- different mechanisms for naming
+- different performance
+
+**Naming in Memory**
+
+For memory, each name needs to be unique - each name must point to at most one value (they can also point to nothing...)
+
+Usually, memory names are linearly mapped (e.g. pointers)
+
+**Layering in Memory**
+
+- file system
+    - inodes are numeric names
+    - file names built on top of inodes
+- internet
+    - MAC addresses
+    - IP addresses
+    - DNS names
+- the web combines multiple high-level naming schemes together
+
+Coherence
+^^^^^^^^^
+Related to ordering/timing - that a read will always return the most recent write
+
+Atomicity
+^^^^^^^^^
+reads/writes happen all at once - can't interleave actions between multiple reads/writes
+
+Coherence and atomicity seem simple, but can be difficult for many reasons.
+
+Interpreter
+^^^^^^^^^^^
+
+- an interpreter performs actions in the computer system
+    - do what the program says in the way it says to do it
+- 3 basic components:
+    - instruction reference - where is the next instruction
+    - repertoire - what can this interpreter do
+    - environment reference - where is the current state
+
+Communication Channel
+^^^^^^^^^^^^^^^^^^^^^
+A way to move information between components
+
+Two main components: send, receive
+
+For example:
+
+- shared memory
+    - might have atomicity issues
+- message pipeline
+    - might have coherency issues (race)

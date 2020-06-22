@@ -1,46 +1,51 @@
 Naming
 ======
 
-Memory
-^^^^^^
-Memory is a fundamental abstraction - it just means storage
+Mapping
+-------
 
-- basic operations:
-    - WRITE (name, value)
-    - value <- READ (name)
-- memory can be provided by both hardware and complex systems
-    - RAM
-    - Disk
-    - files
-    - database
-- use layering and modularity to select specific memory module
-- main characteristics:
-    - latency: time to r/w 1st byte
-    - bandwidth: how long it takes to r/w X bytes
-    - cost
-    - capacity
-    - volatility/lifetime
-    - rewritability
+There are several techniques to map names to values, often combined for a single name resolution.
 
-But you might have:
+The main idea is ``resolve(name, context)``, that maps a name in a context to exactly one value.
 
-- different terms for the units that make up values (e.g. bytes v. sequences)
-- different mechanisms for naming
-- different performance
+- table-based lookup: correspondence of name-value in a table
+- recursive lookup: resolution provides a new name rather than a mapping, new name looked up
+- multiple lookup: search multiple contexts to find the name
 
-**Naming in Memory**
+So why names?
 
-For memory, each name needs to be unique - each name must point to at most one value (they can also point to nothing...)
+Computer systems use names to identify components
 
-Usually, memory names are linearly mapped (e.g. pointers)
+- addresses of values in objects
+- addresses of other systems
 
-**Layering in Memory**
+Components may be passed by value or reference
 
-- file system
-    - inodes are numeric names
-    - file names built on top of inodes
-- internet
-    - MAC addresses
-    - IP addresses
-    - DNS names
-- the web combines multiple high-level naming schemes together
+- value: copy component
+    - only makes sense for some usage
+    - better for modularity: minimizes side effects
+- reference: provide the name of the component
+
+Names facilitate sharing
+
+- different components can reference the same object
+- name is used to provide a reference to each component
+
+Names allow deferred lookup
+
+- to which object does a name refer?
+- decision can be make when the name is looked up
+
+**Indirection**: using intermediary to associate name and object
+
+**Binding**: association of a name to a particular object
+
+Contexts and Operations
+-----------------------
+
+- context: information that helps determine name
+    - e.g. identity of the user
+    - location making the request
+    - current working directory
+
+
